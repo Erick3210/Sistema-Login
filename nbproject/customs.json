@@ -1,0 +1,12 @@
+{
+    "elements": {
+        "google-map": {},
+        "app-spinner": {}
+    },
+    "attributes": {
+        "[(ngmodel)]": {
+            "context": "input"
+        },
+        "[formgroup]": {}
+    }
+}

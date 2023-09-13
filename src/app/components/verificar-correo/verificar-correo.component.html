@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mi Blog Personal</title>
+
+        <style>
+            .form-group {
+                margin-bottom: 20px;
+            }
+
+            .form-group label {
+                font-weight: bold;
+            }
+
+            .form-group input[type="text"],
+            .form-group input[type="file"] {
+                width: 40%;
+                padding: 10px;
+                margin-right: 230px;
+                border: 1px solid #ccc;
+                border-radius: 3px;
+            }
+
+            .form-group button {
+                background-color: #007bff;
+                color: #fff;
+                cursor: pointer;
+                font-size: 16px;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 3px;
+            }
+
+            .form-group button:disabled {
+                background-color: #ccc;
+                cursor: not-allowed;
+            }
+
+
+
+
+
+            .tableM {
+                width: 100%;
+                margin-top: 80px;
+                border-collapse: collapse;
+                text-align: center;
+                background-color:#f2f2f2 ; /* Fondo blanco */
+                color: #333;
+                font-size: 0.8rem;
+
+            }
+
+            .tableM th,
+            .tableM td {
+                padding: 2px;
+                border: 5px solid #fff; /* Borde azul marino mate */
+            }
+
+            .tableM th {
+                background-color: #f2f2f2;
+                font-weight: bold;
+                height: 8px;
+            }
+
+
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+
+            .foto{
+                background-color: #f0f0f0;
+                border: 5px solid #ccc;
+                margin-right: 10px;
+                width: 300px;
+                height: 280px;
+
+            }
+
+
+            .section1{
+                background-color: #f0f0f0;
+                padding: 20px;
+                text-align: center;
+                height: 321px;
+            }
+
+            .section-background {
+                background-image: url('../../../assets/img/Fondo.png'); /* Reemplaza con la URL de tu imagen de fondo */
+                background-size: cover;
+                background-position: center;
+                height: 321px;
+            }
+
+
+            .section3 {
+                background-color: #f0f0f0;
+                padding: 20px;
+                text-align: center;
+            }
+
+            .section2 {
+                background-color: #2271b3;
+                color: #fff;
+                padding: 20px;
+                display: flex;
+                justify-content: space-around;
+            }
+
+            .left-section {
+                flex-basis: 48%; /* Establece el ancho de cada sección */
+                margin: 0 1%; /* Agrega margen entre las secciones */
+                flex: 1;
+                padding: 20px;
+                background-color: #f0f0f0;
+                border: 5px solid #ccc;
+                margin-right: 10px; /* Espacio a la derecha de la sección izquierda */
+            }
+
+            .right-section {
+                flex-basis: 48%; /* Establece el ancho de cada sección */
+                margin: 0 1%; /* Agrega margen entre las secciones */
+                flex: 0.5;
+                padding: 20px;
+                background-color: #f0f0f0;
+                border: 5px solid #000080;
+                margin-left: 10px; /* Espacio a la izquierda de la sección derecha */
+            }
+
+
+            .profile-picture {
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 5px solid #fff;
+            }
+
+            .comment {
+                max-width: 850px; /* Ancho máximo deseado */
+                margin: 0 auto; /* Centra horizontalmente */
+                background-color: #fff;
+                padding: 10px;
+                margin: 10px;
+                border-radius: 5px;
+            }
+
+            .comment input[type="text"],
+            .comment textarea {
+                width: 96%;
+                padding: 10px;
+                margin: 0 auto; /* Centra horizontalmente */
+                margin-bottom: 10px;
+                border: 1px solid #ccc;
+                border-radius: 3px;
+            }
+
+            .comment-container {
+                max-width: 900px;
+                margin-top: 20px; /* Espacio entre los comentarios y el bloque de comentarios */
+            }
+
+            .comment-item {
+                background-color: black;
+                color: white; /* Cambio del color del texto a blanco */
+                padding: 10px;
+                margin: 10px;
+                border-radius: 5px;
+                text-align: center; /* Centra horizontalmente el contenido */
+
+            }
+
+            .comment-item img[src="imagenSeleccionada"] {
+                display: block; /* Hace que la imagen sea un bloque en lugar de un elemento en línea */
+                margin: 0 auto; /* Centra horizontalmente la imagen */
+            }
+
+            .comment button {
+                background-color: #000080;
+                color: #fff;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 3px;
+                cursor: pointer;
+            }
+
+
+
+            .custom-file-input {
+                display: inline-block;
+                cursor: pointer;
+                background-color: #2271b3; /* Cambia el color de fondo a azul */
+                color: #fff; /* Cambia el color del texto a blanco */
+                padding: 10px 20px;
+                border-radius: 3px;
+            }
+
+            /* Cambiar el estilo cuando el usuario pasa el mouse sobre el botón */
+            .custom-file-input:hover {
+                background-color: #0e5a9b; /* Cambia el color de fondo a un tono más oscuro de azul al pasar el mouse */
+            }
+            #boton-container {
+                margin: 0 5%;
+                top: 0cm;
+                margin-top: 5px;
+                left: 2cm;
+                height: 50%;
+
+            }
+
+            #titulo {
+                background-color: #ccc;
+                height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            #miBoton {
+
+                top: 0;
+                left: 0;
+                height: 100%;
+                background-color: #ff0000;
+                color: #fff;
+                padding: 10px 20px;
+                border: none;
+                font-size: 16px;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+
+
+
+        </style>
+    </head>
+    <body>
+
+
+
+        <div class="section1 section-background ">
+
+            <div class="foto">
+                <img *ngIf="selectedImage" [src]="selectedImage" alt="Foto de perfil" style="width: 300px; height: 280px;" />
+                <form (submit)="onImageUpload()">
+                    <input type="file" (change)="onFileSelected($event)" accept="image/*" style="display: none;" id="fileInput" />
+                    <label for="fileInput" class="custom-file-input">
+                        <span>Cargar Foto</span>
+                    </label>
+                </form>
+            </div>
+
+        </div>
+
+        <br>
+
+        <div id="titulo">
+            <h1>¡BIENVENIDO ERICK FRANCISCO CASTILLO BADILLO!</h1>
+            <div id="boton-container">
+                <a id="miBoton" href="http://localhost:4200/login" style=" cursor: pointer; text-decoration: none; background-color: #ff0000; color: #fff; padding: 10px 20px; border-radius: 3px;">SALIR</a>
+            </div>
+        </div>
+
+
+        <!--  <div id="titulo" style=" background-color: gray ; width: 100%; display: flex; justify-content: space-between; align-items: center;">
+             BIENVENIDO ERICK FRANCISCO CASTILLO BADILLO
+             <a class="btn-salir" href="http://localhost:4200/verificar-correo">Regresar</a>
+         </div> -->
+
+
+        <br>
+
+        <div class="section2">
+            <!-- En tu componente HTML -->
+            <div class="right-section">
+                <h2 style="color: black;">INFORMACIÓN</h2>
+
+                <p style="color: black; font-size: 18px;"><strong>Estudios:</strong> Utez Universidad Tecnológica Emiliano Zapata</p>
+
+                <p style="color: black; font-size: 18px;"><strong>Lugar de origen:</strong> Zacatepec de Hidalgo</p>
+
+                <p style="color: black; font-size: 18px;"><strong>Estado civil:</strong> Soltero</p>
+
+                <p style="color: black; font-size: 18px;"><strong>Edad:</strong> 25 años</p>
+
+
+
+
+
+                <table  class="tableM ">
+                    <tr>
+                        <th colspan="3"><br><a><p><font size="5" ><a href="http://localhost:4200/dashboard" style=" color: black;">AMIGOS</a></font></p></a></th>
+
+
+                    </tr>
+
+                    <tr>
+
+
+                        <td>
+
+                            <img src="../../../assets/img/A1.PNG" align="center" width="130" height="120" style="border-radius: 20px;">
+                            <p>Mon Montgersen</p>
+                        </td>
+
+                        <td>
+
+                            <img src="../../../assets/img/A2.PNG" align="center" width="130" height="120" style="border-radius: 20px;">
+                            <p>Bethany Cluiadia</p>
+                        </td> 
+                    </tr>
+
+                    <tr>
+
+                        <td>
+
+                            <img src="../../../assets/img/A3.PNG" align="center" width="130" height="120" style="border-radius: 20px;">
+                            <p>Lupita Hernandez</p>
+                        </td> 
+                        <td>
+
+                            <img src="../../../assets/img/A4.PNG" align="center" width="130" height="120" style="border-radius: 20px;">
+                            <p>Noemii Chs</p>
+                        </td> 
+                    </tr>
+
+                    <tr>
+                        <td>
+
+                            <img src="../../../assets/img/A5.PNG" align="center" width="130" height="120" style="border-radius: 20px;">
+                            <p>Jatziri Reyes</p>
+                        </td> 
+                        <td>
+
+                            <img src="../../../assets/img/A6.PNG" align="center" width="130" height="120" style="border-radius: 20px;">
+                            <p>Adriana PM</p>
+                        </td> 
+
+                    </tr>
+                </table>
+
+
+
+
+                <table  class="tableM ">
+                    <tr>
+                        <th colspan="3"><br><a><p><font size="5" >FOTOS</font></p></a></th>
+
+
+                    </tr>
+
+                    <tr>
+
+
+                        <td><img src="../../../assets/img/1.PNG" align="center" width="130" height="120" style="border-radius: 20px;"></td> 
+                        <td><img src="../../../assets/img/2.PNG" align="center" width="130" height="120" style="border-radius: 20px;"></td> 
+                    </tr>
+
+                    <tr>
+
+                        <td><img src="../../../assets/img/3.PNG" align="center" width="130" height="120" style="border-radius: 20px;"></td> 
+                        <td><img src="../../../assets/img/4.PNG" align="center" width="130" height="120" style="border-radius: 20px;"></td> 
+                    </tr>
+
+                    <tr>
+                        <td><img src="../../../assets/img/5.PNG" align="center" width="130" height="120" style="border-radius: 20px;"></td> 
+                        <td><img src="../../../assets/img/6.PNG" align="center" width="130" height="120" style="border-radius: 20px;"></td> 
+
+                    </tr>
+                </table>
+
+
+            </div>
+
+
+
+
+
+            <div class="left-section">
+
+
+                <h3 style="color: black;">¿QUÉ ESTÁS PENSANDO?</h3>
+                <div class="comment">
+                    <input type="text" placeholder="Escribe tu comentario" [(ngModel)]="newUsername">
+                    <!-- <textarea placeholder="Escribe tu comentario" [(ngModel)]="newComment"></textarea> -->
+
+                    <br>
+                    <div class="form-group">
+                        <label for="imagen" style="color: black;">Imagen:</label>
+                        <input type="file" id="imagen" name="imagen" (change)="cargarImagen($event)">
+
+                    </div>
+
+                    <button (click)="addComment(newUsername)">Publicar</button>
+                    <br>
+                    <br>
+                    <button (click)="clearLocalStorage()">ELIMINAR TODOS LOS COMENTARIOS</button> 
+                </div>
+
+                <div class="comment-container">
+                    <div class="comment-item" *ngFor="let comment of comments; let i = index">
+                        <p style="color: #fff;">{{ comment.content }}</p>
+                        <h2 style="color: black;">Imagen:</h2>
+                        <img [src]="comment.imageUrl" *ngIf="comment.imageUrl" alt="Imagen seleccionada" width="480" height="420">
+                        <button (click)="deleteComment(i)">Eliminar</button>
+                    </div>
+                </div>
+
+            </div>
+            <!-- 
+                         <div class="comment">
+                             <h3 style="color: black;">¿QUÉ ESTÁS PENSANDO?</h3>
+                             <form #form="ngForm" class="formulario-container">
+                                 <div class="form-group">
+                                     <label for="texto" style="color: black;">Comenta algo:</label>
+                                     <input type="text" id="texto" name="texto" [(ngModel)]="texto">
+                                 </div>
+                                 <div class="form-group">
+                                     <label for="imagen" style="color: black;">Imagen:</label>
+                                     <input type="file" id="imagen" name="imagen" (change)="cargarImagen($event)">
+         
+                                 </div>
+                                 <button type="button" (click)="imprimir()">Publicar</button>
+                             </form>
+                             <div class="resultado" *ngIf="texto && imagenSeleccionada">
+                                 <h2 style="color: black;">Texto:</h2>
+                                 <p style="color: black;" >{{ texto }}</p>
+                                 <h2 style="color: black;">Imagen:</h2>
+                                 <img [src]="imagenSeleccionada" *ngIf="imagenSeleccionada" alt="Imagen seleccionada" width="330" height="320">
+                             </div>
+                         </div>
+            -->
+
+
+
+
+            <!-- Puedes repetir este bloque de comentarios según sea necesario -->
+        </div>
+
+        <footer style="background-color: #f0f0f0; color: black; text-align: center; padding: 20px;">
+            <div>
+                <p>&copy; 2023 Mi Blog Personal</p>
+                <p>Todos los derechos reservados</p>
+            </div>
+        </footer>
+
+
+
+    </body>
+</html>
+
